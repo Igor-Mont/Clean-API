@@ -8,6 +8,12 @@ const adaptRoute = (controller: Controller): RequestHandler => {
     }
     const httpResponse = await controller.handle(httpRequest)
 
+    if (httpResponse.body instanceof Error) {
+      return res.status(httpResponse.statusCode).json({
+        error: httpResponse.body.message
+      })
+    }
+
     return res.status(httpResponse.statusCode).json(httpResponse.body)
   }
 }
