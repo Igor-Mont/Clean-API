@@ -1,4 +1,4 @@
-import { LogErrorRepository } from '../../data/protocols/log-error-repository copy'
+import { LogErrorRepository } from '../../data/protocols/log-error-repository'
 import { Controller, HttpRequest, HttpResponse } from '../../presentation/protocols'
 
 class LogControllerDecorator implements Controller {
@@ -14,7 +14,7 @@ class LogControllerDecorator implements Controller {
     const httpResponse = await this.controller.handle(httpRequest)
 
     if (httpResponse.statusCode === 500) {
-      await this.logErrorRepository.log(httpResponse.body.stack)
+      await this.logErrorRepository.logError(httpResponse.body.stack)
     }
 
     return httpResponse
