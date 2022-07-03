@@ -1,5 +1,5 @@
 import { InvalidParamError, MissingParamError } from '../../errors'
-import { badRequest, serverError, unauthorized } from '../../helpers/http-helper'
+import { badRequest, serverError, unauthorized, ok } from '../../helpers/http-helper'
 import { Controller, Authentication, EmailValidator, HttpRequest, HttpResponse } from './login-protocols'
 
 class LoginController implements Controller {
@@ -29,7 +29,7 @@ class LoginController implements Controller {
       if (!accessToken) {
         return unauthorized()
       }
-      return badRequest(new MissingParamError('email'))
+      return ok({ accessToken })
     } catch (error) {
       return serverError(error)
     }
