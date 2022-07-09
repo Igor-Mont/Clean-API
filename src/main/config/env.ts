@@ -1,4 +1,4 @@
 export default {
-  mongoUrl: process.env.MONGO_URL || process.env.MONGODB_URI,
+  mongoUrl: process.env.MONGO_URL || 'mongodb://mongo:27017/clean-node-api',
   port: process.env.PORT || 5050
 }
