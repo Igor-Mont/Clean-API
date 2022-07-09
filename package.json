@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "sucrase-node src/main/server.ts",
+    "start": "node dist/main/server.js",
+    "build": "rimraf dist && tsc",
+    "dev": "sucrase-node src/main/server.ts",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:integration": "npm test -- --watch -c jest-integration-config.js",
     "test:verbose": "jest --passWithNoTests --runInBand",
@@ -13,7 +15,7 @@
     "test:ci": "npm test -- --coverage"
   },
   "keywords": [],
-  "author": "",
+  "author": "Igor Monteiro",
   "license": "ISC",
   "devDependencies": {
     "@shelf/jest-mongodb": "^3.0.1",
@@ -35,6 +37,7 @@
     "husky": "^8.0.1",
     "jest": "^28.1.1",
     "lint-staged": "^13.0.3",
+    "rimraf": "^3.0.2",
     "sucrase": "^3.22.0",
     "supertest": "^6.2.3",
     "ts-jest": "^28.0.5",
@@ -44,7 +47,6 @@
     "bcrypt": "^5.0.1",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "fast-glob": "^3.2.11",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.7.0",
     "validator": "^13.7.0"
