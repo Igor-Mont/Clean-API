@@ -15,7 +15,7 @@
     "test:ci": "npm test -- --coverage"
   },
   "keywords": [],
-  "author": "",
+  "author": "Igor Monteiro",
   "license": "ISC",
   "devDependencies": {
     "@shelf/jest-mongodb": "^3.0.1",
