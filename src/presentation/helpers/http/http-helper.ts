@@ -36,4 +36,11 @@ const ok = (data: any): HttpResponse => {
   }
 }
 
-export { badRequest, serverError, ok, unauthorized, forbidden }
+const noContent = (): HttpResponse => {
+  return {
+    statusCode: 204,
+    body: null
+  }
+}
+
+export { badRequest, serverError, ok, unauthorized, forbidden, noContent }
